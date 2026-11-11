@@ -1,3 +1,0 @@
-D:/Umeed-Foundation Project/admin-web/android/app/.cxx/Debug/2964r5e5/x86/CMakeFiles/appmodules.dir
-D:/Umeed-Foundation Project/admin-web/android/app/.cxx/Debug/2964r5e5/x86/CMakeFiles/edit_cache.dir
-D:/Umeed-Foundation Project/admin-web/android/app/.cxx/Debug/2964r5e5/x86/CMakeFiles/rebuild_cache.dir

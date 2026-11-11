@@ -1,4 +1,0 @@
-D:/Umeed-Foundation Project/UmeedUserApp/android/app/.cxx/Debug/n31321w3/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
-D:/Umeed-Foundation Project/UmeedUserApp/android/app/.cxx/Debug/n31321w3/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
-D:/Umeed-Foundation Project/UmeedUserApp/android/app/.cxx/Debug/n31321w3/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
-D:/Umeed-Foundation Project/UmeedUserApp/android/app/.cxx/Debug/n31321w3/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir
