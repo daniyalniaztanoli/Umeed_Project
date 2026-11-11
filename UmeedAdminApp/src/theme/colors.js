@@ -1,0 +1,32 @@
+﻿export const colors = {
+  careGreen: '#16A34A',
+  trustTeal: '#0D9488',
+  warmAmber: '#F59E0B',
+  ink: '#0F172A',
+  background: '#F1F5F9',
+  white: '#FFFFFF',
+  gray: '#64748B',
+  lightGray: '#E2E8F0',
+  red: '#DC2626',
+  blue: '#2563EB',
+  purple: '#7C3AED',
+};
+
+export const statusColors = {
+  Pending: colors.warmAmber,
+  Assigned: colors.blue,
+  'In Progress': colors.trustTeal,
+  Resolved: colors.careGreen,
+  Rejected: colors.red,
+  Reopened: colors.purple,
+  Submitted: colors.warmAmber,
+  submitted: colors.warmAmber,
+  under_review: colors.trustTeal,
+  approved: colors.blue,
+  rejected: colors.red,
+  disbursed: colors.careGreen,
+  confirmed: colors.careGreen,
+  pending: colors.warmAmber,
+  active: colors.careGreen,
+  inactive: colors.gray,
+};

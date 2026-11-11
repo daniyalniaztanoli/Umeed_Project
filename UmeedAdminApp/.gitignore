@@ -1,0 +1,94 @@
+﻿
+# secrets/keys
+*.keystore
+*.jks
+keystore.properties
+google-services.json
+GoogleService-Info.plist
+serviceAccount*.json
+*.pem
+*.p12
+*.key
+*.crt
+*.apk
+*.aab
+release/
+*.sqlite
+*.db
+.DS_Store
+"
+Add-Content -Path "D:\Final Fyp Jawan Pakistan\Umeed\backend\.gitignore" -Value  -Encoding UTF8
+ = @"
+
+# secrets/keys (extra hardening)
+.env
+.env.*
+!.env.example
+google-services.json
+GoogleService-Info.plist
+serviceAccount*.json
+*.pem
+*.p12
+*.key
+*.crt
+keystore.properties
+gradle/wrapper/gradle-wrapper.properties
+*.apk
+*.aab
+release/
+*.sqlite
+*.db
+"
+Add-Content -Path "D:\Final Fyp Jawan Pakistan\Umeed\UmeedUserApp\.gitignore" -Value  -Encoding UTF8
+@"
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+.cxx/
+*.keystore
+.kotlin/
+
+# node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# env/secrets
+.env
+.env.*
+!.env.example
+keystore.properties
+gradle/wrapper/gradle-wrapper.properties
+google-services.json
+GoogleService-Info.plist
+serviceAccount*.json
+*.pem
+*.p12
+*.key
+*.crt
+*.sqlite
+*.db
+
+# iOS
+**/Pods/
+ios/build/
+
+# bundles/artifacts
+*.jsbundle
+*.apk
+*.aab
+release/
+uploads/
+
+# misc
+.DS_Store
+.metro-health-check*
+coverage/
+
+debug.keystore
+
+
