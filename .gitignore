@@ -52,9 +52,6 @@ keystore.properties
 # if you add secrets to gradle.properties, remove this ignore and use gradle.properties.local instead
 
 # Release artifacts (upload to GitHub Releases instead)
-release/
-*.apk
-*.aab
 
 # Backend uploads (user-generated, not source)
 backend/uploads/
@@ -71,4 +68,5 @@ build-log.txt
 # Vercel/local
 .vercel/
 **/.vercel/
+
 
