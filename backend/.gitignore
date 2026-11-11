@@ -9,3 +9,5 @@ dist/
 build/
 *.log
 npm-debug.log*
+
+.vercel

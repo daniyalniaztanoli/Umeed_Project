@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Use your computer's IP (not localhost) on Android emulator/device
 // Example: http://10.103.152.3:5000/api
-export const BASE_URL = 'http://192.168.100.210:5000/api';
+export const BASE_URL = 'https://backend-xi-fawn-47.vercel.app/api';
 
 const api = axios.create({ baseURL: BASE_URL, timeout: 15000 });
 

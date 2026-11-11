@@ -5,7 +5,7 @@ import { notifyAuthFailure, getApiErrorMessage } from './apiHandler';
 // ⚠️ CHANGE THIS: Use your computer's IP (not localhost) or deployed URL
 // Windows: ipconfig | Mac/Linux: ifconfig
 // Example: http://192.168.100.210:5000/api
-export const BASE_URL = 'http://192.168.100.210:5000/api';
+export const BASE_URL = 'https://backend-xi-fawn-47.vercel.app/api';
 export const REQUEST_TIMEOUT = 15000;
 
 const api = axios.create({ baseURL: BASE_URL, timeout: REQUEST_TIMEOUT });
