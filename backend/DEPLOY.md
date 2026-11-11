@@ -18,12 +18,13 @@
 
 See `backend/.env.example`. **Never commit `.env` or secrets.**
 
-## Important: local uploads are ephemeral on most hosts
-Uploaded files are saved to `backend/uploads/` on local disk. On platforms like **Render** (and other container/ephemeral filesystems), the filesystem is reset on restart/redeploy, so **uploaded images will be deleted**. Database records will still reference `/uploads/...` URLs that no longer exist.
+## Important: image uploads (Cloudinary recommended for production)
+The backend now supports **Cloudinary** for persistent image uploads (complaints, welfare documents/proofs, donations, impact stories, profile pictures). When Cloudinary env vars are set, uploaded files are stored in Cloudinary and their secure URLs are saved in the database.
 
-**Recommended fix (production):** store uploads in object storage (e.g. **Cloudinary**, AWS S3, or similar) instead of local disk.
-- Suggested approach: add Cloudinary (or S3) SDK, upload files there in `middleware/upload.js`/upload handlers, store the returned secure URL in the database, and remove/avoid relying on local `/uploads` serving for new uploads.
-- This requires code changes and provider credentials (API key/secret) — do it before relying on production uploads. Until then, treat uploads as non-durable on Render.
+- **With Cloudinary (recommended):** set `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` (and optional `CLOUDINARY_FOLDER`, default `umeed`) in your hosting environment. Images will persist and display reliably.
+- **Without Cloudinary:** uploads fall back to local disk `backend/uploads/` served at `/uploads`. On platforms like **Render/Vercel** (ephemeral/serverless filesystem), these files are **deleted on restart/redeploy/cold start**, so uploaded images may not show after some time. Use Cloudinary for production.
+
+**Cloudinary setup:** create a free account at [Cloudinary](https://cloudinary.com), copy Cloud Name/API Key/API Secret from the dashboard, and add them as environment variables on your deployed backend (do not commit secrets). Redeploy after setting env vars.
 
 ## Deploy to MongoDB Atlas (if using Atlas)
 1. Create/sign in at [MongoDB Atlas](https://www.mongodb.com/atlas).

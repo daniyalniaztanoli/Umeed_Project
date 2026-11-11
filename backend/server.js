@@ -46,7 +46,7 @@ app.post('/api/upload', require('./middleware/authMiddleware').protect, upload.a
     return res.status(400).json({ message: 'No files uploaded' });
   }
   const baseUrl = `${req.protocol}://${req.get('host')}`;
-  const urls = req.files.map(f => `${baseUrl}/uploads/${f.filename}`);
+  const urls = req.files.map((f) => f.path || f.secure_url || f.url || `${baseUrl}/uploads/${f.filename}`);
   res.json({ urls });
 });
 

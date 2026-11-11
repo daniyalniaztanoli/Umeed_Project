@@ -199,7 +199,7 @@ const updateComplaintStatus = async (req, res) => {
     complaint.status = status;
     if (status === 'Resolved') {
       complaint.resolvedAt = new Date();
-      if (req.file) complaint.resolutionPhoto = `/uploads/${req.file.filename}`;
+      if (req.file) complaint.resolutionPhoto = req.file.path || req.file.secure_url || `/uploads/${req.file.filename}`;
     }
     await complaint.save();
 
@@ -207,7 +207,7 @@ const updateComplaintStatus = async (req, res) => {
       complaint: complaint._id,
       status,
       remark: remark || `Status changed to ${status}`,
-      photoUrl: req.file ? `/uploads/${req.file.filename}` : null,
+      photoUrl: req.file ? (req.file.path || req.file.secure_url || `/uploads/${req.file.filename}`) : null,
       updatedBy: req.user._id,
     });
 

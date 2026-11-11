@@ -45,8 +45,9 @@ const registerUser = async (req, res) => {
 
     // Create user (role default 'user', sirf admin hi 'admin' bana sakta hai)
     let profilePic;
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
     if (req.file) {
-      profilePic = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+      profilePic = req.file.path || req.file.secure_url || req.file.url || `${baseUrl}/uploads/${req.file.filename}`;
     } else if (typeof req.body.profilePic === 'string' && req.body.profilePic) {
       profilePic = req.body.profilePic;
     }

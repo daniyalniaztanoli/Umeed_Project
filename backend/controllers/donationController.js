@@ -30,7 +30,10 @@ const createDonation = async (req, res) => {
     }
 
     let proofUrl = req.body.proofUrl;
-    if (req.file) proofUrl = `/uploads/${req.file.filename}`;
+    if (req.file) {
+      const baseUrl = `${req.protocol}://${req.get('host')}`;
+      proofUrl = req.file.path || req.file.secure_url || req.file.url || `${baseUrl}/uploads/${req.file.filename}`;
+    }
 
     const donation = await Donation.create({
       user: req.user?._id,

@@ -5,8 +5,8 @@ import { notifyAuthFailure, getApiErrorMessage } from './apiHandler';
 
 // Local backend for debug builds (Android emulator; requires: adb reverse tcp:5000 tcp:5000):
 export const LOCAL_BASE_URL = Platform.OS === 'android' ? 'http://10.0.2.2:5000/api' : 'http://localhost:5000/api';
-// Production backend URL (HTTPS). TODO: replace with your deployed Render URL after deploy, e.g. https://umeed-backend.onrender.com/api
-export const PROD_BASE_URL = 'https://REPLACE_WITH_DEPLOYED_BACKEND_URL/api';
+// Production backend URL (HTTPS). Set to deployed backend for release APKs.
+export const PROD_BASE_URL = 'https://backend-xi-fawn-47.vercel.app/api';
 
 // Debug -> local backend, Release -> production backend (HTTPS only)
 export const BASE_URL = __DEV__ ? LOCAL_BASE_URL : PROD_BASE_URL;

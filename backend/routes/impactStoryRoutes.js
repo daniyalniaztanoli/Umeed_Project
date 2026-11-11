@@ -27,12 +27,13 @@ router.post(
         return res
           .status(400)
           .json({ message: "Title and summary are required" });
+      const baseUrl = `${req.protocol}://${req.get("host")}`;
       const story = await ImpactStory.create({
         title,
         summary,
         body: body || "",
         category: category || "general",
-        imageUrl: req.file ? `/uploads/${req.file.filename}` : undefined,
+        imageUrl: req.file ? (req.file.path || req.file.secure_url || req.file.url || `${baseUrl}/uploads/${req.file.filename}`) : undefined,
         isPublished: isPublished !== "false" && isPublished !== false,
         createdBy: req.user._id,
       });
@@ -52,7 +53,10 @@ router.put(
   async (req, res) => {
     try {
       const updates = { ...req.body };
-      if (req.file) updates.imageUrl = `/uploads/${req.file.filename}`;
+      if (req.file) {
+        const baseUrl = `${req.protocol}://${req.get("host")}`;
+        updates.imageUrl = req.file.path || req.file.secure_url || req.file.url || `${baseUrl}/uploads/${req.file.filename}`;
+      }
       if (updates.isPublished !== undefined)
         updates.isPublished = updates.isPublished !== "false";
       const story = await ImpactStory.findByIdAndUpdate(

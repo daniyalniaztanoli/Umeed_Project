@@ -82,8 +82,9 @@ const createWelfareRequest = async (req, res) => {
     }
 
     // Multiple documents upload
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
     const documents = req.files
-      ? req.files.map((file) => `/uploads/${file.filename}`)
+      ? req.files.map((file) => file.path || file.secure_url || file.url || `${baseUrl}/uploads/${file.filename}`)
       : [];
 
     const welfareRequest = await WelfareRequest.create({
@@ -340,7 +341,8 @@ const disburseWelfareRequest = async (req, res) => {
     }
 
     // Proof photo
-    const proofUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const proofUrl = req.file ? (req.file.path || req.file.secure_url || req.file.url || `${baseUrl}/uploads/${req.file.filename}`) : null;
 
     // Create disbursement record
     const disbursement = await Disbursement.create({
